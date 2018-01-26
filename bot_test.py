@@ -42,7 +42,10 @@ def main():
         last_update = greet_bot.get_last_update()
 
         last_update_id = last_update['update_id']
-        last_chat_text = last_update['message']['text']
+        if 'text' in last_update:
+            last_chat_text = last_update['message']['text']
+        else:
+            print 'This does not have a text entry'
         last_chat_id = last_update['message']['chat']['id']
         last_chat_name = last_update['message']['chat']['first_name']
 
